@@ -1,7 +1,6 @@
+
 ARCHS = arm64 arm64e
 TARGET = iphone:clang:latest:15.0
-
-THEOS_PACKAGE_SCHEME = rootless
 
 include $(THEOS)/makefiles/common.mk
 
@@ -18,3 +17,7 @@ iOS26SpoofPrefs_CFLAGS = -fobjc-arc
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 include $(THEOS_MAKE_PATH)/bundle.mk
+
+after-stage::
+	mkdir -p $(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences
+	cp layout/Library/PreferenceLoader/Preferences/com.ios26spoof.plist $(THEOS_STAGING_DIR)/Library/PreferenceLoader/Preferences/iOS26SpoofPrefs.plist
