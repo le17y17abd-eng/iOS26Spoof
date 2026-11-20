@@ -22,8 +22,12 @@ jobs:
         env:
           THEOS: ${{ github.workspace }}/theos
 
+      - name: Install ldid
+        run: |
+          brew install ldid
+
       - name: Build package
-        run: make package THEOS_PACKAGE_SCHEME=rootless
+        run: make clean package THEOS_PACKAGE_SCHEME=rootless
         env:
           THEOS: ${{ github.workspace }}/theos
 
