@@ -5,7 +5,7 @@
 
 static NSDictionary *GetPrefs(void) {
     return [NSDictionary dictionaryWithContentsOfFile:
-    @"/var/mobile/Library/Preferences/com.ios26spoof.plist"];
+    @"/var/jb/var/mobile/Library/Preferences/com.ios26spoof.plist"];
 }
 
 static BOOL IsSpoofEnabled(void) {
