@@ -1,0 +1,27 @@
+
+name: Build iOS26Spoof
+
+on:
+  workflow_dispatch:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: macos-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Install Theos
+        run: |
+          git clone --recursive https://github.com/theos/theos.git $THEOS
+          echo "$THEOS/bin" >> $GITHUB_PATH
+        env:
+          THEOS: ${{ github.workspace }}/theos
+
+      - name: Build package
+        run: |
+          make package THEOS_PACKAGE_SCHEME=rootless
