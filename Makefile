@@ -8,11 +8,11 @@ iOS26Spoof_FILES = Tweak.x
 iOS26Spoof_CFLAGS = -fobjc-arc
 
 BUNDLE_NAME = iOS26SpoofPrefs
-iOS26SpoofPrefs_FILES = iOS26SpoofPrefs/RootListController.m
-iOS26SpoofPrefs_FRAMEWORKS = UIKit
-iOS26SpoofPrefs_PRIVATE_FRAMEWORKS = Preferences
+iOS26Spoof_FILES = iOS26SpoofPrefs/RootListController.m
+iOS26Spoof_FRAMEWORKS = UIKit
 iOS26SpoofPrefs_INSTALL_PATH = /Library/PreferenceBundles
 iOS26SpoofPrefs_CFLAGS = -fobjc-arc
+iOS26SpoofPrefs_LDFLAGS = -Wl,-undefined,dynamic_lookup
 
 include $(THEOS_MAKE_PATH)/tweak.mk
 include $(THEOS_MAKE_PATH)/bundle.mk
